@@ -1,3 +1,8 @@
+# Flores Soto Gael Eduardo
+# Clase: Inteligencia Artificial de 9 a 10
+# Árbol Binario de Búsqueda (ABB)
+
+
 class Nodo:
     def __init__(self, valor):
         self.valor = valor
@@ -9,14 +14,12 @@ class ArbolBinarioBusqueda:
         self.raiz = None
 
     def insertar(self, valor):
-        """Inserta un valor en el árbol binario de búsqueda."""
         if self.raiz is None:
             self.raiz = Nodo(valor)
         else:
             self._insertar_recursivo(self.raiz, valor)
 
     def _insertar_recursivo(self, nodo, valor):
-        """Método auxiliar para insertar de manera recursiva."""
         if valor < nodo.valor:
             if nodo.izquierda is None:
                 nodo.izquierda = Nodo(valor)
@@ -29,22 +32,19 @@ class ArbolBinarioBusqueda:
                 self._insertar_recursivo(nodo.derecha, valor)
 
     def imprimirArbol(self):
-        """Imprime el árbol en orden (in-order traversal)."""
         self._imprimir_recursivo(self.raiz)
 
     def _imprimir_recursivo(self, nodo):
-        """Método auxiliar para imprimir de manera recursiva."""
         if nodo is not None:
             self._imprimir_recursivo(nodo.izquierda)
             print(nodo.valor, end=" ")
             self._imprimir_recursivo(nodo.derecha)
-
 
 if __name__ == "__main__":
     arbol = ArbolBinarioBusqueda()
     valores = [50, 30, 70, 20, 40, 60, 80] 
     for valor in valores:
         arbol.insertar(valor)
-    
+
     print("Árbol en orden:")
     arbol.imprimirArbol()
